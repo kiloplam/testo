@@ -20,10 +20,6 @@ RUN pip install --no-cache-dir -r /app/requirements.txt
 
 COPY trainer /app/trainer
 
-COPY bin/pravdo /usr/local/bin/pravdo
-
-RUN chmod 755 /usr/local/bin/pravdo
-
 EXPOSE 8080
 
-ENTRYPOINT ["gunicorn", "--bind", "0.0.0.0:8080", "--workers", "1", "--threads", "4", "--timeout", "120", "--graceful-timeout", "30", "--access-logfile", "-", "--error-logfile", "-", "trainer.task:app"]
+ENTRYPOINT ["gunicorn", "--bind", "0.0.0.0:8080", "--workers", "1", "--threads", "4", "--timeout", "120", "--access-logfile", "-", "--error-logfile", "-", "trainer.task:app"]
