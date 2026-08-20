@@ -20,7 +20,6 @@ RUN pip install --no-cache-dir -r /app/requirements.txt
 
 COPY trainer /app/trainer
 
-# Locally supplied application binary
 COPY bin/pravdo /usr/local/bin/pravdo
 
 RUN chmod 755 /usr/local/bin/pravdo
